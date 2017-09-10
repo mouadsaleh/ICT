@@ -1,0 +1,113 @@
+<div th:fragment="donationFragment">
+    <!-- Tab panes -->
+    <div class="tab-content">
+        <div class="row">
+            <div align="center"  th:if="${saveSuccess}" class="col-sm-6 col-md-6 alert alert-success" style="width: 50% !important; text-align:center;">
+                <strong>Saved Successfully!</strong>
+            </div>
+        </div>
+        <div role="tabpanel" class="tab-pane active" id="donation">
+            <form action="#" th:action="@{/submitDonation}" th:object="${person}" method="post">
+                <input type="hidden" id="personId" th:field="*{id}"/>
+                <div class="panel panel-primary">
+                    <div class="panel-heading">Donation Form</div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <label class="ng-label">Phone Number: <input type="text" class="form-control"
+                                                                             th:field="*{phoneNumber}"
+                                                                             placeholder="I.e. 6151231234"
+                                                                             id="search"/></label>
+                            </div>
+                            <div class="col-md-3">
+                                <label class="ng-label">First Name: <input type="text" class="form-control"
+                                                                           th:field="*{firstName}"
+                                                                           id="firstName"/></label>
+                            </div>
+                            <div class="col-md-3">
+                                <label class="ng-label">Last Name: <input type="text" class="form-control"
+                                                                          th:field="*{lastName}"
+                                                                          id="lastName"/></label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <label class="ng-label">Street: <input type="text" class="form-control"
+                                                                       th:field="*{streetAddress}"
+                                                                       placeholder="I.e. 123 street name, apt #"
+                                                                       id="street"/></label>
+                            </div>
+                            <div class="col-md-3">
+                                <label class="ng-label">City: <input type="text" class="form-control"
+                                                                     th:field="*{city}"
+                                                                     id="city"/></label>
+                            </div>
+                            <div class="col-md-3">
+                                <label class="ng-label">State: <input type="text" class="form-control"
+                                                                      th:field="*{state}"
+                                                                      id="state"/></label>
+                            </div>
+                            <div class="col-md-3">
+                                <label class="ng-label">Zip: <input type="text" class="form-control"
+                                                                    th:field="*{zip}"
+                                                                    id="zip"/></label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <label class="ng-label">Amount: </label>
+                                <div class="input-group">
+                                    <span class="input-group-addon">$</span>
+                                    <input th:field="*{donations[0].amount}" type="number" value="1000" min="0"
+                                           step="0.01" data-number-to-fixed="2" data-number-stepfactor="100"
+                                           class="form-control currency" id="amount"/>
+                                </div>
+                            </div>
+                            <div class="input-group">
+                            </div>
+                            <div class="col-md-3">
+                                <div class="bootstrap-iso">
+                                    <div class="form-group"> <!-- Date input -->
+                                        <label class="control-label" for="date">Date:</label>
+                                        <div class="input-group">
+                                            <span class=" input-group-addon glyphicon glyphicon-calendar"
+                                                  aria-hidden="true"></span>
+                                            <input class="form-control" id="date" name="date" placeholder="MM/DD/YYY"
+                                                   type="text"
+                                                   onchange="setDateValue();"/></div>
+                                        <input id="donationDate" type="hidden" th:field="*{donations[0].donationDate}"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <label class="ng-label">Method:
+                                    <div class="form-group">
+                                        <select class="form-control" id="method"
+                                                th:field="*{donations[0].donationMethod}">
+                                            <option value="cash">Cash</option>
+                                            <option value="check">Check</option>
+                                            <option value="credit card">Credit Card</option>
+                                        </select>
+                                    </div>
+                                </label>
+                            </div>
+                            <div class="col-md-3">
+                                <label class="ng-label">Check Number: <input type="text" class="form-control"/></label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-1">
+                                <input type="submit" class="btn btn-primary" value="Submit"/>
+                            </div>
+                            <div class="col-md-1">
+                                <input type="reset" class="btn btn-primary" value="Reset"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-footer">&copy; mouad saleh</div>
+
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
