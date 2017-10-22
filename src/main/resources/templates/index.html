@@ -1,54 +1,12 @@
-<!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <title>ICT</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <!-- bootstrap & jquery -->
-    <script src="webjars/jquery/3.1.1/jquery.js"></script>
-    <link href="webjars/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet" media="screen"/>
-    <script src="webjars/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-    <!-- jquery autocomplete -->
-    <script src="webjars/jquery-ui/1.12.0/jquery-ui.min.js"></script>
-    <link href="webjars/jquery-ui/1.12.0/jquery-ui.min.css" rel="stylesheet" media="screen"/>
-    <!-- Bootstrap Date-Picker Plugin -->
-    <script type="text/javascript" src="webjars/bootstrap-datepicker/1.4.0/js/bootstrap-datepicker.min.js"></script>
-    <link rel="stylesheet" href="webjars/bootstrap-datepicker/1.4.0/css/bootstrap-datepicker.css"/>
-    <!-- custom functions -->
-    <script type="text/javascript" th:src="@{/js/myJsFunctions.js}"></script>
+    <title>ICT</title>
 </head>
 <body>
-<div class="container">
-    <div class="page-header" align="center">
-        <h3>Islamic Center Of Tennessee</h3>
-    </div>
-</div>
-<div>
-    <!-- Nav tabs -->
-    <ul class="nav nav-tabs" role="tablist">
-        <li role="presentation" class="active">
-            <a href="#donation" onclick="javascript:hideShowTabs('donation');" aria-controls="donation" role="tab"
-               data-toggle="tab">
-                Donation
-            </a>
-        </li>
-        <li role="presentation">
-            <a href="#report" onclick="javascript:hideShowTabs('report');" aria-controls="report" role="tab"
-               data-toggle="tab">Reports</a>
-        </li>
-    </ul>
-    <br/>
-    <br/>
-    <!-- Tab panes -->
-    <div class="tab-content">
-        <div role="tabpanel" class="tab-pane active" id="donation">
-            <div th:replace="donationFragment :: donationFragment"></div>
-        </div>
-        <div role="tabpanel" class="tab-pane" id="report">
-            <div th:replace="donationResult :: result">...</div>
-            ...
-        </div>
-    </div>
-
-</div>
+<h1>Welcome to ICT Donation Tracker</h1>
+<p><a th:href="@{/home}">Home</a></p><br/>
+<p>Login <a th:href="@{/login}">Here</a></p>
 </body>
 </html>

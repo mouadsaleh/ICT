@@ -2,8 +2,8 @@ package donation.tracker.controller;
 
 import donation.tracker.dto.Donation;
 import donation.tracker.dto.Person;
-import donation.tracker.repositories.PersonRepository;
 import donation.tracker.repositories.DonationRepository;
+import donation.tracker.repositories.PersonRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.CollectionUtils;
@@ -24,7 +24,7 @@ public class DonationTrackerController {
     @Resource
     private DonationRepository donationRepository;
 
-    @RequestMapping("/")
+    @RequestMapping(value = {"/", "/home"})
     public String homeController(Model model) {
         Person person = new Person();
         person.setId(UUID.randomUUID().toString());
@@ -34,26 +34,13 @@ public class DonationTrackerController {
         donations.add(new Donation());
         person.setDonations(donations);
         model.addAttribute("person", person);
-        return "index";
+        return "home";
     }
 
     @GetMapping("/getPerson")
     @ResponseBody
     public List<Person> getPerson(@RequestParam String term) {
         return personRepository.findTop10ByPhoneNumberContaining(term);
-    }
-
-    @GetMapping("/donation")
-    public String donationForm(Model model) {
-        Person person = new Person();
-        person.setId(UUID.randomUUID().toString());
-        List<Donation> donations = new ArrayList<Donation>();
-        Donation donation = new Donation();
-        donation.setPersonId(person.getId());
-        donations.add(new Donation());
-        person.setDonations(donations);
-        model.addAttribute("person", person);
-        return "donation";
     }
 
     @RequestMapping(value = "/submitDonation", method = RequestMethod.POST)
@@ -70,6 +57,6 @@ public class DonationTrackerController {
         personRepository.save(person);
         donationRepository.save(person.getDonations());
         redirectAttributes.addFlashAttribute("saveSuccess", true);
-        return "redirect:/";
+        return "redirect:/home";
     }
 }

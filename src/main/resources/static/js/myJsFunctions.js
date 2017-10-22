@@ -46,11 +46,6 @@ $("#search").autocomplete({
         $('#state').val(ui.item.state);
         $('#zip').val(ui.item.zip);
             event.preventDefault();
-//            $("#selected_tags span").append('<a href=" + ui.item.tag_url + " target="_blank">'+ ui.item.label +'</a>');
-            //$("#tagQuery").value = $("#tagQuery").defaultValue
-//            var defValue = $("#tagQuery").prop('defaultValue');
-//            $("#tagQuery").val(defValue);
-//            $("#tagQuery").blur();
             return false;
         }
     }
