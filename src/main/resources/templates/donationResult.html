@@ -1,12 +1,106 @@
-<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
-      xmlns="http://www.w3.org/1999/xhtml">
-
 <div th:fragment="result">
-    <h1>Result</h1>
-    <!--<p th:text="'amount: ' + ${donation.amount}" />-->
-    <!--<p th:text="'donationDate: ' + ${donation.donationDate}" />-->
-    <!--<p th:number="'phone number: ' + ${donation.person.phoneNumber}" />-->
-    <a href="/">Submit another message</a>
-</div>
+    <div class="wrapper">
+        <nav id="sidebar">
+            <!-- Sidebar Header -->
+            <div class="sidebar-header">
+                <h3>Collapsible Sidebar</h3>
+            </div>
 
-</html>
+
+            <!-- Sidebar Links -->
+            <!--<ul class="list-unstyled components">-->
+            <!--<li class="active"><a href="#">Home</a></li>-->
+            <!--<li><a href="#">About</a></li>-->
+
+            <!--<li>&lt;!&ndash; Link with dropdown items &ndash;&gt;-->
+            <!--<a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">Pages</a>-->
+            <!--<ul class="collapse list-unstyled" id="homeSubmenu">-->
+            <!--<li><a href="#">Page</a></li>-->
+            <!--<li><a href="#">Page</a></li>-->
+            <!--<li><a href="#">Page</a></li>-->
+            <!--</ul>-->
+            <!--</li>-->
+            <!--<li><a href="#">Portfolio</a></li>-->
+            <!--<li><a href="#">Contact</a></li>-->
+            <!--</ul>-->
+            <form action="#" th:action="@{/getReport}" th:object="${reportRequest}" method="post">
+                <div class="row">
+                    <div class="col-md-11 col-md-offset-1">
+                        <label class="ng-label">Phone Number: <input type="text" class="form-control"
+                                                                     th:field="*{phoneNumber}"/></label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-11 col-md-offset-1">
+                        <label class="ng-label">Last Name: <input type="text" class="form-control"
+                                                                   th:field="*{lastName}"/></label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-11 col-md-offset-1">
+                        <label class="ng-label">Start Date: <input type="text" class="form-control"
+                                                                   th:field="*{startDate}"/></label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-11 col-md-offset-1">
+                        <label class="ng-label">End Date: <input type="text" class="form-control"
+                                                                 th:field="*{endDate}"/></label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-11 col-md-offset-1">
+                        <input type="submit" class="btn btn-primary" value="Run Report"/>
+                    </div>
+                </div>
+            </form>
+
+        </nav>
+        <div id="content">
+            <div id="reportsResult" class="panel panel-primary">
+                <div class="panel-heading">Panel with panel-primary class</div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <button type="button" id="sidebarCollapse" class="btn btn-primary navbar-btn">
+                                <i class="glyphicon glyphicon-align-left"></i>
+                                Toggle Sidebar
+                            </button>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+
+                        </div>
+                    </div>
+                    <table class="table table-bordered">
+                        <thead>
+                        <tr>
+                            <th>Firstname</th>
+                            <th>Lastname</th>
+                            <th>Email</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>John</td>
+                            <td>Doe</td>
+                            <td>john@example.com</td>
+                        </tr>
+                        <tr>
+                            <td>Mary</td>
+                            <td>Moe</td>
+                            <td>mary@example.com</td>
+                        </tr>
+                        <tr>
+                            <td>July</td>
+                            <td>Dooley</td>
+                            <td>july@example.com</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

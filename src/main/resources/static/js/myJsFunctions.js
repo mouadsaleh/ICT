@@ -308,6 +308,9 @@ select : function(event, ui) {
   });
 });
 
+$('#sidebarCollapse').on('click', function () {
+    $('#sidebar').toggleClass('active');
+});
 
 });
 

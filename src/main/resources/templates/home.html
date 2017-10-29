@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="webjars/bootstrap-datepicker/1.4.0/css/bootstrap-datepicker.css"/>
     <!-- custom functions -->
     <script type="text/javascript" th:src="@{/js/myJsFunctions.js}"></script>
+    <link rel="stylesheet" href="/style/reportsStyle.css" th:href="@{/style/reportsStyle.css}"/>
 </head>
 <body background="#eee !important;">
 <form th:action="@{/logout}" method="post">
@@ -52,8 +53,7 @@
             <div th:replace="donationFragment :: donationFragment"></div>
         </div>
         <div role="tabpanel" class="tab-pane" id="report">
-            <div th:replace="donationResult :: result">...</div>
-            ...
+            <div th:replace="donationResult :: result"></div>
         </div>
     </div>
 

@@ -2,6 +2,7 @@ package donation.tracker.controller;
 
 import donation.tracker.dto.Donation;
 import donation.tracker.dto.Person;
+import donation.tracker.dto.ReportRequest;
 import donation.tracker.repositories.DonationRepository;
 import donation.tracker.repositories.PersonRepository;
 import org.springframework.stereotype.Controller;
@@ -34,6 +35,7 @@ public class DonationTrackerController {
         donations.add(new Donation());
         person.setDonations(donations);
         model.addAttribute("person", person);
+        model.addAttribute("reportRequest", new ReportRequest());
         return "home";
     }
 
@@ -58,5 +60,10 @@ public class DonationTrackerController {
         donationRepository.save(person.getDonations());
         redirectAttributes.addFlashAttribute("saveSuccess", true);
         return "redirect:/home";
+    }
+
+    @RequestMapping(value = "/getReport")
+    public void getReport(@RequestParam ReportRequest request) {
+        String name = new String();
     }
 }
