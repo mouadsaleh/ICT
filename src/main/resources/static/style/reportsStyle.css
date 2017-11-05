@@ -63,7 +63,6 @@ a, a:hover, a:focus {
 #sidebar {
     /* don't forget to add all the previously mentioned styles here too */
     background: #337AB7;
-    color: #fff;
     transition: all 0.3s;
 }
 
@@ -72,13 +71,20 @@ a, a:hover, a:focus {
     background: #337AB7;
 }
 
+#sidebar .sidebar-header h3 {
+    color: #fff;
+}
+
+#sidebar .ng-label {
+    color: #fff !important;
+}
+
 #sidebar ul.components {
     padding: 20px 0;
     border-bottom: 1px solid #337AB7;
 }
 
 #sidebar ul p {
-    color: #fff;
     padding: 10px;
 }
 
@@ -89,11 +95,9 @@ a, a:hover, a:focus {
 }
 #sidebar ul li a:hover {
     color: #7386D5;
-    background: #fff;
 }
 
 #sidebar ul li.active > a, a[aria-expanded="true"] {
-    color: #fff;
     background: #6d7fcc;
 }
 ul ul a {

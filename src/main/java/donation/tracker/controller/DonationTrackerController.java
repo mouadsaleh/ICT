@@ -63,7 +63,8 @@ public class DonationTrackerController {
     }
 
     @RequestMapping(value = "/getReport")
-    public void getReport(@RequestParam ReportRequest request) {
+    public String getReport(@ModelAttribute final ReportRequest request) {
         String name = new String();
+        return "redirect:/home";
     }
 }

@@ -1,12 +1,12 @@
 package donation.tracker.dto;
 
-import java.time.LocalDate;
+import java.util.Date;
 
 public class ReportRequest {
     private String phoneNumber;
     private String lastName;
-    private LocalDate startDate;
-    private LocalDate endDate;
+    private Date startDate;
+    private Date endDate;
 
     public String getPhoneNumber() {
         return phoneNumber;
@@ -24,19 +24,19 @@ public class ReportRequest {
         this.lastName = lastName;
     }
 
-    public LocalDate getStartDate() {
+    public Date getStartDate() {
         return startDate;
     }
 
-    public void setStartDate(LocalDate startDate) {
+    public void setStartDate(Date startDate) {
         this.startDate = startDate;
     }
 
-    public LocalDate getEndDate() {
+    public Date getEndDate() {
         return endDate;
     }
 
-    public void setEndDate(LocalDate endDate) {
+    public void setEndDate(Date endDate) {
         this.endDate = endDate;
     }
 }

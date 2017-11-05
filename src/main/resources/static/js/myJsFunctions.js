@@ -1,13 +1,35 @@
 $(document).ready(function(){
-  var date_input=$('input[name="date"]'); //our date input has the name "date"
-  var container=$('.bootstrap-iso');
-  var options={
+
+ //Date picker setup for three different date fields date, startDateInput, endDateInput
+  var date_input1=$('input[name="date"]');
+  var date_input2=$('input[name="startDateInput"]');
+  var date_input3=$('input[name="endDateInput"]');
+  var container1=$('.bootstrap-iso-1');
+  var container2=$('.bootstrap-iso-2');
+  var container3=$('.bootstrap-iso-3');
+  var options1={
     format: 'mm/dd/yyyy',
-    container: container,
+    container: container1,
     todayHighlight: true,
     autoclose: true,
   };
-  date_input.datepicker(options);
+    var options2={
+      format: 'mm/dd/yyyy',
+      container: container2,
+      todayHighlight: true,
+      autoclose: true,
+    };
+      var options3={
+        format: 'mm/dd/yyyy',
+        container: container3,
+        todayHighlight: true,
+        autoclose: true,
+      };
+  date_input1.datepicker(options1);
+  date_input2.datepicker(options2);
+  date_input3.datepicker(options3);
+
+  // Date picker setups ends here.
 
 // Auto complete
 $("#search").autocomplete({
@@ -320,7 +342,7 @@ function hideShowTabs(tabId) {
         $('#report').hide();
 
         $.ajax({
-        url : "/donation",
+        url : "/home",
         type : "GET",
 
         success : function(response) {
@@ -337,4 +359,9 @@ function hideShowTabs(tabId) {
 
 function setDateValue(){
     $('#donationDate').val($('#date').val());
+}
+
+function setValue(id) {
+    var jqueryId = "#" + id;
+    $(jqueryId).val($(jqueryId + "Input").val());
 }
